@@ -26,6 +26,9 @@
             border-width: medium;
             border-color: blue;
         }
+        fieldset:hover{
+            background-color: burlywood;
+        }
         bg{
             background-color: yellowgreen;
         }
@@ -36,10 +39,26 @@
             text-align: center;
             font-size: 40px ;
         }
+        a:visited{
+            color: brown;
+        }
+        a:hover{
+            background-color: bisque;
+        }
+        #num2:hover{
+            background-color: bisque;
+        }
+        .odd{
+            font-size: 20px;
+        }
+        .odd:hover{
+            background-color: darkseagreen;
+        }
     </style>
 </head>
 <body>
     <h1>2024년 대학수학능력시험 국어영역 기출</h1>
+    <h4 style="text-align: center;"><a href="https://google.com">정답 및 해설로 이동</a></h4>
     <hr>
     <h3>[8~9] 다음 <보기>를 읽고 물음에 답하시오.</h3>
     <fieldset>
@@ -62,11 +81,11 @@
     </fieldset>
     <br>
     <h3>8. 윗글을 이해한 내용으로 적절하지 <u>않은</u> 것은?</h3>
-    <input type="radio" name="1" id="n1"> 1. 데이터가 수치로 구성되지 않아도 최빈값을 구할 수 있다.<br>
-    <input type="radio" name="2" id="n2"> 2. 데이터의 특징이 언제나 하나의 수치로 나타나는 것은 아니다.<br>
-    <input type="radio" name="3" id="n3"> 3. 데이터가 정상적으로 수집되었다면 이상치가 존재하지 않는다.<br>
-    <input type="radio" name="4" id="n4"> 4. 데이터에 동일한 수치가 여러 개 있어도 중앙값으로 결측치를 대체할 수 있다.<br>
-    <input type="radio" name="5" id="n5"> 5. 데이터를 수집하는 과정에서 측정 오류가 발생한 값이라도 이상치가 아닐 수 있다.<br>
+    <input type="radio" name="1" id="n1"> <label for="" class="odd">1. 데이터가 수치로 구성되지 않아도 최빈값을 구할 수 있다.</label><br>
+    <input type="radio" name="2" id="n2"> <label for="" id="num2">2. 데이터의 특징이 언제나 하나의 수치로 나타나는 것은 아니다.</label><br>
+    <input type="radio" name="3" id="n3"> <label for="" class="odd">3. 데이터가 정상적으로 수집되었다면 이상치가 존재하지 않는다.</label><br>
+    <input type="radio" name="4" id="n4"> <label for="">4. 데이터에 동일한 수치가 여러 개 있어도 중앙값으로 결측치를 대체할 수 있다.</label><br>
+    <input type="radio" name="5" id="n5"> <label for="" class="odd">5. 데이터를 수집하는 과정에서 측정 오류가 발생한 값이라도 이상치가 아닐 수 있다.</label><br>
     <br>
 </body>
 </html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>온도 변환기</title>
+</head>
+<body>
+    <label for="celsiusInput">섭씨온도 입력:</label>
+    <input type="text" id="celsiusInput">
+    <button onclick="convertTemperature()">변환</button>
+    <div id="result"></div>
+
+    <table border="3">
+        <tr>
+            <td>섭씨온도</td>
+            <td>화씨온도</td>
+        </tr>
+        <script>
+            // 새로운 함수를 하나 더 만들어서 섭씨온도를 입력받고 화씨온도를 출력하게 함.
+            function convertTemperature() {
+                let celsius = parseFloat(document.getElementById('celsiusInput').value);
+                let fahrenheit = (celsius * 9/5) + 32;
+                document.getElementById('result').innerText = celsius + "도는 화씨온도 " + fahrenheit + "도 입니다.";
+            }
+
+            for (let i = 0; i <= 10; i++) {
+                let celsius = i;
+                let fahrenheit = (celsius * 9/5) + 32;
+                let bgColor = celsius < 5 ? "red" : "blue";
+                // 섭씨온도가 5 미만이면 배경색을 red, 5 이상이면 blue가 되도록 설정해서 태극기를 연상시키는 문양을 만듦.
+                document.write("<tr style='background-color: " + bgColor + "'>");
+                document.write("<td>" + celsius + "</td>");
+                document.write("<td>" + fahrenheit + "</td>");
+                document.write("</tr>");
+            }
+        </script>
+    </table>
+</body>
+</html>

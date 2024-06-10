@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h1>1번 실습</h1>
+<button onclick="document.getElementById('lightb').src='light-bulb1.png'">
+		전등켜기스위치</button>
+<button onclick="document.getElementById('lightb').src='light-bulb2.png'">
+		전등끄기스위치</button>
+
+<img id="lightb" src="light-bulb2.png" style="width:120px">
+
+<hr>
+
+<h1>2번 실습</h1>
+    <p>마우스를 이미지 위로 올리면 이미지가 커집니다.</p>
+
+    <img onmouseover="this.style.width='600px'" onmouseout="this.style.width='500px'"
+		src="dog.jpg" width="500px">
+<!-- 강아지!!!!!!!!!!!! 귀여워!!!!!!!!!!!!!!!!!!! -->
+        <hr>
+
+<h1>3번 실습</h1>
+<script>
+        let s = "Hello World";
+        let t = "How are you" + " today?";
+        document.write(s + "<br>");
+        document.write(t + "<br>");
+        document.write(s.toUpperCase() + "<br>");
+        // document.write(t.toUpperCase() + "<br>");
+    </script>
+<hr>
+
+
+
+
+    <h1>4번 실습</h1>
+    <script>
+        let num1=prompt("정수를 입력하시오");
+        // let num1=parseInt(prompt("정수를 입력하시오"));
+        let num2=prompt("정수를 입력하시오");
+        let sum=parseInt(num1) + parseInt(num2);
+        // let sum=Number(num1) + Number(num2);
+        document.write("더한 값 : " + sum);
+    </script>
+    <hr>
+
+
+    
+    <h1>5번 실습</h1>
+    <script>
+        function func(){
+            document.write("페이지가 적재된 후에 write()를 사용하면 다시 씌여집니다.")
+        }
+    </script>
+    <button type="button" onclick="func()">클릭하세요!</button>
+</body>
+</html>

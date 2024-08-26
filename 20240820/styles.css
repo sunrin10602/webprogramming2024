@@ -1,0 +1,18 @@
+img {
+    width: 400px;
+}
+
+.DarkMode {
+    background-color: #000;
+    color: #fff;
+}
+
+.DarkMode button {
+    background-color: #000;
+    color: #fff;
+}
+
+body{
+    background-color: #fff;
+    color: #000;
+}

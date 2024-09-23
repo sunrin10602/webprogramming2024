@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <style>
+        * {
+            text-align: center;
+        }
+
+        #board {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        #board tr td {
+            border: 1px solid white;
+            background: #34da79;
+            width: 16px;
+            height: 16px;
+            text-align: center;
+        }
+
+        #board tr td.clicked {
+            background: #6c5ee7;
+        }
+
+        #board tr td.mine {
+            background: #FF0000;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>지뢰찾기</h1>
+
+    <!-- 업다운 버튼을 통해 지뢰 개수를 선택 -->
+    <label for="mineInput">지뢰 개수: </label>
+    <input type="number" id="mineInput" value="3" min="1" max="64" step="1">
+    <p>남은 지뢰 개수: <span id="mineCount"></span></p>
+
+    <table id="board"></table>
+    <button onclick="genGrid();">새로운 게임</button>
+
+    <script>
+        let grid = document.getElementById("board");
+        let mineCountDisplay = document.getElementById("mineCount");
+        let reMines = 0;
+
+        function genGrid() {
+            grid.innerHTML = "";
+            reMines = 0; // 지뢰 개수 초기화
+            let totalCells = 8 * 8; // 전체 칸 수
+            let mineInput = document.getElementById("mineInput");
+            let mineCount = parseInt(mineInput.value); // 사용자가 선택한 지뢰 개수
+
+            let minesPlaced = 0; // 배치된 지뢰 개수
+
+            for (let i = 0; i < 8; i++) {
+                let row = grid.insertRow(i);
+                for (let j = 0; j < 8; j++) {
+                    let cell = row.insertCell(j);
+                    cell.onclick = function () { clickBox(this); };
+
+                    var mine = document.createAttribute("mine");
+                    if (minesPlaced < mineCount && Math.random() < (mineCount / totalCells)) 
+                    // 배치된 지뢰 < 배치해야할 지뢰 && Math.random() < (배치해야할 지뢰/전체 칸 수)
+                    // 퍼센테이지로 써야하기 때문에 배치해야할 지뢰/전체 칸 수임
+                    {
+                        mine.value = "true";
+                        reMines++; // 지뢰 배치 시 개수 증가
+                        minesPlaced++;
+                    } else {
+                        mine.value = "false";
+                    }
+                    cell.setAttributeNode(mine);
+                }
+            }
+
+            // 남은 지뢰 개수를 화면에 표시
+            mineCountDisplay.innerText = reMines;
+        }
+
+        function clickBox(cell) {
+            if (cell.getAttribute("mine") == "true") {
+                cell.className = "mine";
+                reMines--; // 남은 지뢰 개수 감소
+                mineCountDisplay.innerText = reMines; // 화면에 업데이트
+                if (reMines == 0){
+                    alert("지뢰를 모두 찾았습니다. 게임을 종료합니다.");
+                    genGrid();
+                } else{alert("지뢰를 찾았습니다.");}
+                
+            } else if (cell.getAttribute("mine") == "false") {
+                cell.className = "clicked";
+            }
+        }
+    </script>
+</body>
+
+</html>
